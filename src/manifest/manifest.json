@@ -1,35 +1,33 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.6/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.6",
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.7",
   "id": "{{APPLICATION_ID}}",
   "version": "{{VERSION}}",
   "packageName": "{{PACKAGE_NAME}}",
   "developer": {
-    "name": "KirinEnt",
+    "name": "Troy Kirin",
     "websiteUrl": "https://{{HOSTNAME}}",
     "privacyUrl": "https://{{HOSTNAME}}/privacy.html",
     "termsOfUseUrl": "https://{{HOSTNAME}}/tou.html"
   },
   "name": {
-    "short": "Rasa React MsTeams App",
-    "full": "Rasa React MsTeams App"
+    "short": "Rasa",
+    "full": "Atlas (Rasa React MsTeams App)"
   },
   "description": {
-    "short": "TODO: add short description here",
-    "full": "TODO: add full description here"
+    "short": "Proof of Concept Connecting Rasa to MS Teams",
+    "full": "Proof of Concept Connecting Rasa to MS Teams"
   },
   "icons": {
     "outline": "icon-outline.png",
     "color": "icon-color.png"
   },
-  "accentColor": "#D85028",
+  "accentColor": "#F9F9FA",
   "configurableTabs": [
     {
       "configurationUrl": "https://{{HOSTNAME}}/rasaTab/config.html?name={loginHint}&tenant={tid}&group={groupId}&theme={theme}",
       "canUpdateConfiguration": true,
-      "scopes": [
-        "team"
-      ]
+      "scopes": ["team", "groupchat"]
     }
   ],
   "staticTabs": [
@@ -37,9 +35,7 @@
       "entityId": "ceaaa1d0-bd6f-11ea-a709-5fbdf9a14333",
       "name": "About Atlas",
       "contentUrl": "https://{{HOSTNAME}}/atlasBot/aboutAtlas.html",
-      "scopes": [
-        "personal"
-      ]
+      "scopes": ["personal"]
     }
   ],
   "bots": [
@@ -47,16 +43,10 @@
       "botId": "{{MICROSOFT_APP_ID}}",
       "needsChannelSelector": true,
       "isNotificationOnly": false,
-      "scopes": [
-        "team",
-        "personal"
-      ],
+      "scopes": ["team", "personal"],
       "commandLists": [
         {
-          "scopes": [
-            "team",
-            "personal"
-          ],
+          "scopes": ["team", "personal"],
           "commands": [
             {
               "title": "Help",
@@ -80,22 +70,13 @@
           "description": "Add a clever description here",
           "initialRun": true,
           "type": "action",
-          "context": [
-            "compose",
-            "commandBox",
-            "message"
-          ],
+          "context": ["compose", "commandBox", "message"],
           "fetchTask": true
         }
       ]
     }
   ],
-  "permissions": [
-    "identity",
-    "messageTeamMembers"
-  ],
-  "validDomains": [
-    "{{HOSTNAME}}"
-  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": ["{{HOSTNAME}}"],
   "showLoadingIndicator": true
 }
