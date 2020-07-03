@@ -1,6 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.7",
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.6/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.6",
   "id": "{{APPLICATION_ID}}",
   "version": "{{VERSION}}",
   "packageName": "{{PACKAGE_NAME}}",
@@ -85,6 +85,9 @@
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["{{HOSTNAME}}"],
+  "validDomains": [
+    "643bdbd4b376.ngrok.io",
+    "reactmsteamstabsapp.azurewebsites.net"
+  ],
   "showLoadingIndicator": true
 }
