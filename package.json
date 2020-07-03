@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "gulp build",
+    "manifest": "gulp manifest",
     "debug": "gulp serve --debug"
   },
   "dependencies": {
