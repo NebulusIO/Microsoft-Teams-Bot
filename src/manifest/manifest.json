@@ -71,7 +71,15 @@
           "initialRun": true,
           "type": "action",
           "context": ["compose", "commandBox", "message"],
-          "fetchTask": true
+          "fetchTask": true,
+          "context": ["compose", "commandBox", "message"],
+          "parameters": [
+            {
+              "name": "param",
+              "title": "param",
+              "description": ""
+            }
+          ]
         }
       ]
     }
