@@ -1,0 +1,11 @@
+{
+  "generator-teams": {
+    "promptValues": {
+      "developer": "KirinEnt",
+      "unitTestsEnabled": false,
+      "useAzureAppInsights": false
+    },
+    "libraryName": "reactMsteamsTabsApp",
+    "generator-version": "2.15.0"
+  }
+}
