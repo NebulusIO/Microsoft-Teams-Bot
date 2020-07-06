@@ -1,14 +1,14 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.6/MicrosoftTeams.schema.json",
   "manifestVersion": "1.6",
-  "id": "{{APPLICATION_ID}}",
-  "version": "{{VERSION}}",
-  "packageName": "{{PACKAGE_NAME}}",
+  "id": "5b58b0a0-bd6f-11ea-a709-5fbdf9a14333",
+  "version": "0.0.3",
+  "packageName": "kirin.rasa.atlas.com",
   "developer": {
     "name": "Troy Kirin",
-    "websiteUrl": "https://{{HOSTNAME}}",
-    "privacyUrl": "https://{{HOSTNAME}}/privacy.html",
-    "termsOfUseUrl": "https://{{HOSTNAME}}/tou.html"
+    "websiteUrl": "https://53e1c1ac3f98.ngrok.io",
+    "privacyUrl": "https://53e1c1ac3f98.ngrok.io/privacy.html",
+    "termsOfUseUrl": "https://53e1c1ac3f98.ngrok.io/tou.html"
   },
   "name": {
     "short": "Rasa",
@@ -25,7 +25,7 @@
   "accentColor": "#F9F9FA",
   "configurableTabs": [
     {
-      "configurationUrl": "https://{{HOSTNAME}}/rasaTab/config.html?name={loginHint}&tenant={tid}&group={groupId}&theme={theme}",
+      "configurationUrl": "https://53e1c1ac3f98.ngrok.io/rasaTab/config.html?name={loginHint}&tenant={tid}&group={groupId}&theme={theme}",
       "canUpdateConfiguration": true,
       "scopes": ["team", "groupchat"]
     }
@@ -34,13 +34,13 @@
     {
       "entityId": "ceaaa1d0-bd6f-11ea-a709-5fbdf9a14333",
       "name": "About Atlas",
-      "contentUrl": "https://{{HOSTNAME}}/atlasBot/aboutAtlas.html",
+      "contentUrl": "https://53e1c1ac3f98.ngrok.io/atlasBot/aboutAtlas.html",
       "scopes": ["personal"]
     }
   ],
   "bots": [
     {
-      "botId": "{{MICROSOFT_APP_ID}}",
+      "botId": "f00c9d86-af5d-43ea-b12f-982178ed1399",
       "needsChannelSelector": true,
       "isNotificationOnly": false,
       "scopes": ["team", "personal"],
@@ -61,7 +61,7 @@
   "connectors": [],
   "composeExtensions": [
     {
-      "botId": "{{MICROSOFT_APP_ID}}",
+      "botId": "f00c9d86-af5d-43ea-b12f-982178ed1399",
       "canUpdateConfiguration": true,
       "commands": [
         {
