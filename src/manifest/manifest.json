@@ -32,7 +32,7 @@
   ],
   "staticTabs": [
     {
-      "entityId": "ceaaa1d0-bd6f-11ea-a709-5fbdf9a14333",
+      "entityId": "aboutAtlas",
       "name": "About Atlas",
       "contentUrl": "https://{{HOSTNAME}}/atlasBot/aboutAtlas.html",
       "scopes": ["personal"]
