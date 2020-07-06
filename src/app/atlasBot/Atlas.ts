@@ -5,6 +5,7 @@ import {
   BotDeclaration,
   MessageExtensionDeclaration,
   PreventIframe,
+// tslint:disable: quotemark
 } from 'express-msteams-host';
 import * as debug from 'debug';
 import { DialogSet, DialogState } from 'botbuilder-dialogs';
