@@ -1,36 +1,54 @@
 {
-    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "type": "AdaptiveCard",
-    "version": "1.2",
-    "body": [
-      {
-        "type": "TextBlock",
-        "spacing": "medium",
-        "size": "default",
-        "weight": "bolder",
-        "text": "Welcome to Rasa React MsTeams App",
-        "wrap": true,
-        "maxLines": 0
-      },
-      {
-        "type": "TextBlock",
-        "size": "default",
-        "isSubtle": true,
-        "text": "Hello, nice to meet you!",
-        "wrap": true,
-        "maxLines": 0
-      }
-    ],
-    "actions": [
-      {
-        "type": "Action.OpenUrl",
-        "title": "Learn more about Yo Teams",
-        "url": "https://aka.ms/yoteams"
-      },
-      {
-        "type": "Action.OpenUrl",
-        "title": "Rasa React MsTeams App",
-        "url": "https://reactmsteamstabsapp.azurewebsites.net"
-      }
-    ]
-  }
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.2",
+  "body": [
+    {
+      "type": "TextBlock",
+      "spacing": "medium",
+      "size": "default",
+      "weight": "bolder",
+      "text": "Welcome to Rasa React MsTeams App by TroyKirin",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "isSubtle": true,
+      "text": "Hello, nice to meet you!",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "isSubtle": true,
+      "text": "I'm still in development, although checkout what I can do below!",
+      "wrap": true,
+      "maxLines": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "Built with yeoman generator, check yo out!",
+      "url": "https://aka.ms/yoteams"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Learn more about Rasa Open-Source",
+      "url": "https://rasa.com/"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Learn more about RasaBot.",
+      "url": "https://reactmsteamstabsapp.azurewebsites.net"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Learn more about Author.",
+      "url": "https://troykirin.io"
+    }
+  ]
+}
