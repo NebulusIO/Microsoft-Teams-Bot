@@ -31,17 +31,17 @@
     }
   ],
   "staticTabs": [
+     {
+       "entityId": "Rasa",
+       "name": "Rasa",
+       "contentUrl": "https://{{HOSTNAME}}/rasaTab/index.html",
+       "websiteUrl": "https://{{HOSTNAME}}",
+       "scopes": ["personal"]
+     },
     {
       "entityId": "aboutAtlas",
       "name": "About Atlas",
       "contentUrl": "https://{{HOSTNAME}}/atlasBot/aboutAtlas.html",
-      "scopes": ["personal"]
-    },
-    {
-      "entityId": "Google",
-      "name": "Google",
-      "contentUrl": "https://www.google.com/",
-      "websiteUrl": "https://www.google.com/",
       "scopes": ["personal"]
     }
   ],
@@ -92,6 +92,6 @@
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["*.github.com","*.google.com"],
+  "validDomains": ["*.github.com","*.google.com","*.jsdelivr.net"],
   "showLoadingIndicator": true
 }
