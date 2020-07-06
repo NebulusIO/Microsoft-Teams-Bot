@@ -10,6 +10,7 @@ import TeamsBaseComponent, {
   ITeamsBaseComponentState,
 } from 'msteams-react-base-component';
 import * as microsoftTeams from '@microsoft/teams-js';
+import { Widget } from 'rasa-webchat';
 
 /**
  * State for the aboutAtlasTab React component
@@ -59,6 +60,18 @@ export class AboutAtlasTab extends TeamsBaseComponent<
             <div>
               <Text content="I'm a bot that works as a custom app inside Microsoft teams." />
             </div>
+          </Flex.Item>
+
+          <Flex.Item>
+            <Widget
+              initPayload={'/get_started'}
+              embedded="true"
+              socketUrl={'https://311320773469.ngrok.io'}
+              socketPath={'/socket.io/'}
+              customData={{ language: 'en' }} // arbitrary custom data. Stay minimal as this will be added to the socket
+              title={'Atlas Bot'}
+              subtitle='A Troy Kirin Experience.'
+            />
           </Flex.Item>
 
           <Flex.Item>
