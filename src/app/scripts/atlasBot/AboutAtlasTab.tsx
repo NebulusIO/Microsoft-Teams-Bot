@@ -52,18 +52,18 @@ export class AboutAtlasTab extends TeamsBaseComponent<
           }}
         >
           <Flex.Item>
-            <Header content="Welcome to the Atlas bot page" />
+            <Header content="Welcome to the Atlas about me page!" />
           </Flex.Item>
 
           <Flex.Item>
             <div>
-              <Text content="Hello World! Yo Teams rocks!" />
+              <Text content="I'm a bot that works as a custom app inside Microsoft teams." />
             </div>
           </Flex.Item>
 
           <Flex.Item>
             <div>
-              <Text content="TODO: Add you content here" />
+              <Text content="Custom built by Troy Kirin" />
             </div>
           </Flex.Item>
           <Flex.Item
