@@ -10,7 +10,7 @@ import { Widget } from 'rasa-webchat';
  * State for the rasaTabTab React component
  */
 export interface IRasaTabState extends ITeamsBaseComponentState {
-    entityId?: string;
+  entityId?: string;
 }
 
 /**
@@ -20,21 +20,18 @@ export interface IRasaTabProps {
 
 }
 
-const CustomWidget = () => {
-    return (
-      <div>
-        <Widget
-          initPayload={'/get_started'}
-          embedded="true"
-          socketUrl={'https://311320773469.ngrok.io'}
-          socketPath={'/socket.io/'}
-          customData={{ language: 'en' }} // arbitrary custom data. Stay minimal as this will be added to the socket
-          title={'Atlas Bot'}
-          subtitle='A Troy Kirin Experience.'
-        />
-        <Text>Text from Widget function.</Text>
-      </div>
-    );
+const RasaWidget = () => {
+  return (
+      <Widget
+        initPayload={'/get_started'}
+        embedded="true"
+        socketUrl={'https://311320773469.ngrok.io'}
+        socketPath={'/socket.io/'}
+        customData={{ language: 'en' }} // arbitrary custom data. Stay minimal as this will be added to the socket
+        title={'Atlas Bot'}
+        subtitle='A Troy Kirin Experience.'
+      />
+  );
 };
 
 /**
@@ -42,74 +39,59 @@ const CustomWidget = () => {
  */
 export class RasaTab extends TeamsBaseComponent<IRasaTabProps, IRasaTabState> {
 
-    public async componentWillMount() {
-        this.updateTheme(this.getQueryVariable("theme"));
+  public async componentWillMount() {
+    this.updateTheme(this.getQueryVariable("theme"));
 
 
-        if (await this.inTeams()) {
-            microsoftTeams.initialize();
-            microsoftTeams.registerOnThemeChangeHandler(this.updateTheme);
-            // This is where the widget breaks by showing briefly then disappearing.
-            microsoftTeams.getContext((context) => {
-                microsoftTeams.appInitialization.notifySuccess();
-                this.setState({
-                    entityId: context.entityId
-                });
-                this.updateTheme(context.theme);
-            });
-        } else {
-            this.setState({
-                entityId: "This is not hosted in Microsoft Teams"
-            });
-        }
+    if (await this.inTeams()) {
+      microsoftTeams.initialize();
+      microsoftTeams.registerOnThemeChangeHandler(this.updateTheme);
+      // This is where the widget breaks by showing briefly then disappearing.
+      microsoftTeams.appInitialization.notifySuccess();
     }
+  }
 
-    /**
-     * The render() method to create the UI of the tab
-     */
-    public render() {
-        return (
-          <Provider theme={this.state.theme}>
-            <Flex
-              fill={true}
-              column
-              styles={{
-                padding: '.8rem 0 .8rem .5rem',
-              }}
-            >
-              <Flex.Item>
-                <Header content="This is your tab" />
-              </Flex.Item>
-              <Flex.Item>
-                <div>
-                  <div>
-                    <Text content={this.state.entityId} />
-                  </div>
+  /**
+   * The render() method to create the UI of the tab
+   */
+  public render() {
+    return (
+      <Provider theme={this.state.theme}>
+        <Flex
+          fill={true}
+          column
+          styles={{
+            padding: '.8rem 0 .8rem .5rem',
+          }}
+        >
+          <Flex.Item>
+            <Header content="Welcome to Rasa WebChat Tab!" />
+          </Flex.Item>
 
-                  <div>
-                    <Button onClick={() => alert('It worked!')}>
-                      A sample button
+          <Flex.Item>
+            <div>
+
+              <div>
+                <Button onClick={() => alert('Thanks!')}>
+                  Click if you like!
                     </Button>
-                  </div>
-                </div>
-              </Flex.Item>
+              </div>
+            </div>
+          </Flex.Item>
 
-              <Flex.Item>
-                <div>
-                  <CustomWidget />
-                  <Text>Widget Goes Here.</Text>
-                </div>
-              </Flex.Item>
+          <Flex.Item>
+            <RasaWidget/>
+          </Flex.Item>
 
-              <Flex.Item
-                styles={{
-                  padding: '.8rem 0 .8rem .5rem',
-                }}
-              >
-                <Text size="smaller" content="(C) Copyright KirinEnt" />
-              </Flex.Item>
-            </Flex>
-          </Provider>
-        );
-    }
+          <Flex.Item
+            styles={{
+              padding: '.8rem 0 .8rem .5rem',
+            }}
+          >
+            <Text size="smaller" content="(C) Copyright KirinEnt" />
+          </Flex.Item>
+        </Flex>
+      </Provider>
+    );
+  }
 }
