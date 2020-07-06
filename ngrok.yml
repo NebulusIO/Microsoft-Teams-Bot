@@ -1,0 +1,8 @@
+authtoken: 1dgwMxRdqZn28FvBtjZP3UpW9WA_NDPm6XFP6u1nQxBz87ER
+tunnels:
+  rasa:
+    addr: 5005
+    proto: http    
+  msteams:
+    addr: 3007
+    proto: http
