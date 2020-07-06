@@ -11,7 +11,7 @@
     "termsOfUseUrl": "https://{{HOSTNAME}}/tou.html"
   },
   "name": {
-    "short": "Rasa",
+    "short": "Atlas",
     "full": "Atlas (Rasa React MsTeams App)"
   },
   "description": {
@@ -38,10 +38,10 @@
       "scopes": ["personal"]
     },
     {
-      "entityId": "rasaWebChat",
-      "name": "Rasa WebChat",
-      "contentUrl": "https://blog.thoughtstuff.co.uk",
-      "websiteUrl": "https://blog.thoughtstuff.co.uk",
+      "entityId": "Google",
+      "name": "Google",
+      "contentUrl": "https://www.google.com/",
+      "websiteUrl": "https://www.google.com/",
       "scopes": ["personal"]
     }
   ],
@@ -92,6 +92,6 @@
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["*.github.com","*.thoughtstuff.co.uk"],
+  "validDomains": ["*.github.com","*.google.com"],
   "showLoadingIndicator": true
 }
