@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>RasaChat Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div id="webchat"></div>
     <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
     <p>Version 0.0.1 by Troy Kirin</p>
     <p>A demo of Rasa on a webchat.</p>
-
+    
     <script>
       WebChat.default.init({
         selector: '#webchat',
         initPayload: '/get_started',
+        embedded: true,
         customData: { language: 'en' }, // arbitrary custom data. Stay minimal as this will be added to the socket
         socketUrl: 'https://311320773469.ngrok.io',
         socketPath: '/socket.io/',
-        title: 'Demo Bot',
-        subtitle: 'Subtitle',
+        title: 'Rasa Demo Bot',
+        subtitle: 'A Troy Kirin Experience.',
         params: { storage: 'session' }, // can be set to "local"  or "session". details in storage section.
       });
     </script>
