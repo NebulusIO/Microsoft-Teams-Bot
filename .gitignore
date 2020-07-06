@@ -13,3 +13,13 @@ connectors.json
 # do not include dist files
 dist
 .DS_Store
+
+#rasabot
+
+rasa_bot/__pycache__/
+
+rasa_bot/models/
+rasa_bot/credentials.yml
+
+#mac
+.DS_Store
