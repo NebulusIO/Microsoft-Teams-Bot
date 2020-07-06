@@ -85,9 +85,6 @@
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": [
-    "643bdbd4b376.ngrok.io",
-    "reactmsteamstabsapp.azurewebsites.net"
-  ],
+  "validDomains": ["reactmsteamstabsapp.azurewebsites.net"],
   "showLoadingIndicator": true
 }
