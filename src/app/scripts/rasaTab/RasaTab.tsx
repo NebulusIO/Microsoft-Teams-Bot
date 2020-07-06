@@ -1,10 +1,11 @@
 // tslint:disable: quotemark
 
 import * as React from "react";
-import {Widget} from 'rasa-webchat';
 import { Provider, Flex, Text, Button, Header } from "@fluentui/react-northstar";
 import TeamsBaseComponent, { ITeamsBaseComponentState } from "msteams-react-base-component";
 import * as microsoftTeams from "@microsoft/teams-js";
+import { Widget } from 'rasa-webchat';
+
 /**
  * State for the rasaTabTab React component
  */
@@ -48,6 +49,7 @@ export class RasaTab extends TeamsBaseComponent<IRasaTabProps, IRasaTabState> {
         if (await this.inTeams()) {
             microsoftTeams.initialize();
             microsoftTeams.registerOnThemeChangeHandler(this.updateTheme);
+            // This is where the widget breaks by showing briefly then disappearing.
             microsoftTeams.getContext((context) => {
                 microsoftTeams.appInitialization.notifySuccess();
                 this.setState({
