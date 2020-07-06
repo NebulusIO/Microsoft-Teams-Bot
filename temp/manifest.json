@@ -36,6 +36,13 @@
       "name": "About Atlas",
       "contentUrl": "https://53e1c1ac3f98.ngrok.io/atlasBot/aboutAtlas.html",
       "scopes": ["personal"]
+    },
+    {
+      "entityId": "rasaWebChat",
+      "name": "Rasa WebChat",
+      "contentUrl": "https://blog.thoughtstuff.co.uk",
+      "websiteUrl": "https://blog.thoughtstuff.co.uk",
+      "scopes": ["personal"]
     }
   ],
   "bots": [
@@ -85,6 +92,6 @@
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": [],
+  "validDomains": ["*.github.com","*.thoughtstuff.co.uk"],
   "showLoadingIndicator": true
 }
