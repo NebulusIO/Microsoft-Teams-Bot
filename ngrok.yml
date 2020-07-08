@@ -1,8 +1,11 @@
 authtoken: 1dgwMxRdqZn28FvBtjZP3UpW9WA_NDPm6XFP6u1nQxBz87ER
+
 tunnels:
   rasa:
     addr: 5005
+    hostname: rasa.troykirin.io
     proto: http    
   msteams:
     addr: 3007
+    hostname: teams.troykirin.io
     proto: http
