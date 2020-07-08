@@ -18,6 +18,7 @@ import {
   ActivityTypes,
   TeamsActivityHandler,
 } from 'botbuilder';
+import { LuisRecognizer } from ('botbuilder-ai');
 import HelpDialog from './dialogs/HelpDialog';
 import IntroDialog from './dialogs/IntroDialog';
 import FeedbackDialog from './dialogs/FeedbackDialog';
