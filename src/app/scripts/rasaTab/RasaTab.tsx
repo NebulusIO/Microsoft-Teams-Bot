@@ -25,7 +25,7 @@ const RasaWidget = () => {
       <Widget
         initPayload={'/get_started'}
         embedded="true"
-        socketUrl={'https://311320773469.ngrok.io'}
+        socketUrl={'https://rasa.troykirin.io'}
         socketPath={'/socket.io/'}
         customData={{ language: 'en' }} // arbitrary custom data. Stay minimal as this will be added to the socket
         title={'Atlas Bot'}
