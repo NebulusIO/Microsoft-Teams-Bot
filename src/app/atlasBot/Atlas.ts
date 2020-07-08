@@ -20,6 +20,7 @@ import {
 } from 'botbuilder';
 import HelpDialog from './dialogs/HelpDialog';
 import IntroDialog from './dialogs/IntroDialog';
+import FeedbackDialog from './dialogs/FeedbackDialog';
 import AtlasExtentionMessageExtension from '../atlasExtentionMessageExtension/AtlasExtentionMessageExtension';
 import WelcomeCard from './dialogs/WelcomeDialog';
 
@@ -36,6 +37,7 @@ const log = debug('msteams');
   process.env.MICROSOFT_APP_PASSWORD
 )
 @PreventIframe('/atlasBot/aboutAtlas.html')
+
 export class Atlas extends TeamsActivityHandler {
   private readonly conversationState: ConversationState;
   /** Local property for AtlasExtentionMessageExtension */
@@ -50,15 +52,18 @@ export class Atlas extends TeamsActivityHandler {
    */
   public constructor(conversationState: ConversationState) {
     super();
+
     // Message extension AtlasExtentionMessageExtension
     this._atlasExtentionMessageExtension = new AtlasExtentionMessageExtension();
 
     this.conversationState = conversationState;
     this.dialogState = conversationState.createProperty('dialogState');
     this.dialogs = new DialogSet(this.dialogState);
+
     // add dialogs
     this.dialogs.add(new HelpDialog('help'));
     this.dialogs.add(new IntroDialog('intro'));
+    this.dialogs.add(new FeedbackDialog('feedback'));
 
     // Set up the Activity processing
 
@@ -78,6 +83,9 @@ export class Atlas extends TeamsActivityHandler {
             } else if (text.startsWith('intro')) {
               const dc = await this.dialogs.createContext(context);
               await dc.beginDialog('intro');
+            } else if (text.startsWith('feedback')) {
+              const dc = await this.dialogs.createContext(context);
+              await dc.beginDialog('feedback');
             } else {
               await context.sendActivity(
                 `I\'m terribly sorry, but my master hasn\'t trained me to do anything yet...`
