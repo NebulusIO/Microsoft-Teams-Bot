@@ -1,42 +1,16 @@
 # Rasa React MsTeams App - Microsoft Teams App
 
-Generate a Microsoft Teams application.
+# Generate App
+Generate a Microsoft Teams application utlizing yeoman generator. Follow interactive installer.
 
-TODO: Add your documentation here
+# Build process
+Build app with gulp. Will create express server with webpack.
 
-## Getting started with Microsoft Teams Apps development
+# MS Teams App
+$Gulp manifest
+Will generate the zip to upload into Microsoft Teams as a custom application. Orginization will need to have custom app upload enabled.
 
-Head on over to [Microsoft Teams official documentation](https://developer.microsoft.com/en-us/microsoft-teams) to learn how to build Microsoft Teams Tabs or the [Microsoft Teams Yeoman generator Wiki](https://github.com/PnP/generator-teams/wiki) for details on how this solution is set up.
-
-## Project setup
-
-All required source code are located in the `./src` folder - split into two parts
-
-* `app` for the application
-* `manifest` for the Microsoft Teams app manifest
-
-For further details se the [Yo Teams wiki for the project structure](https://github.com/PnP/generator-teams/wiki/Project-Structure)
-
-## Building the app
-
-The application is built using the `build` Gulp task.
-
-``` bash
-npm i -g gulp gulp-cli
-gulp build
-```
-
-## Building the manifest
-
-To create the Microsoft Teams Apps manifest, run the `manifest` Gulp task. This will generate and validate the package and finally create the package (a zip file) in the `package` folder. The manifest will be validated against the schema and dynamically populated with values from the `.env` file.
-
-``` bash
-gulp manifest
-```
-
-## Configuration
-
-Configuration is stored in the `.env` file. 
+Configuration for Azure, AppID, BotID, etc. is stored in the `.env` file. 
 
 ## Debug and test locally
 
@@ -52,6 +26,7 @@ To debug the code you can append the argument `debug` to the `serve` command as 
 gulp serve --debug
 ```
 
+# Debugging
 To step through code in Visual Studio Code you need to add the following snippet in the `./.vscode/launch.json` file. Once done, you can easily attach to the node process after running the `gulp server --debug` command.
 
 ``` json
@@ -70,9 +45,7 @@ To step through code in Visual Studio Code you need to add the following snippet
 
 ### Using ngrok for local development and hosting
 
-In order to make development locally a great experience it is recommended to use [ngrok](https://ngrok.io), which allows you to publish the localhost on a public DNS, so that you can consume the bot and the other resources in Microsoft Teams. 
-
-To use ngrok, it is recommended to use the `gulp ngrok-serve` command, which will read your ngrok settings from the `.env` file and automatically create a correct manifest file and finally start a local development server using the ngrok settings.
+Using ngrok, which allows you to publish the localhost on a public DNS, so that you can consume the bot and the other resources in Microsoft Teams. 
 
 ### Additional build options
 
