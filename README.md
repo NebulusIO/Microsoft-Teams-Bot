@@ -1,5 +1,7 @@
 # Rasa React MsTeams App - Microsoft Teams App
 
+First application utilizing TypeScript coming from some JavaScript for React applications.
+
 # Generate App
 Generate a Microsoft Teams application utlizing yeoman generator. Follow interactive installer.
 
