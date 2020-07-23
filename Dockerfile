@@ -1,15 +1,30 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as builder
+LABEL maintainer="troykirin.io"
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /root/app
+
+USER root
+
+SHELL ["/bin/bash", "-c"]
+
+# Expose ports
+EXPOSE 5005/tcp
+EXPOSE 3007/tcp
+
+RUN apt-get --yes update
+RUN apt-get -y install sudo
+RUN apt-get install --yes curl
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN apt-get install --yes nodejs
+RUN apt-get install --yes build-essential
+
+
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-
-# Download NodeJS
-
 # install node_modules
 RUN npm install
 
@@ -22,7 +37,10 @@ RUN npm install gulp
 # Bundle app source
 COPY . .
 
+# ------------ not being used ---------------
 # Download Python
+# RUN apt install -y python3
+# RUN apt install -y python3-pip
 
 # Pip install requirements
 
@@ -31,17 +49,34 @@ COPY . .
 # ngrok authentication envVar
 
 # start ngrok for rasa and msteams
-CMD ["ngrok start -config=/opt/ngrok/conf/ngrok.yml rasa msteams"]
+# CMD ["ngrok start -config=/opt/ngrok/conf/ngrok.yml rasa msteams"]
 
 # run rasa
-CMD ["rasa run -m models/20200705-202240.tar.gz --enable-api --cors "*" --debug"]
+# CMD ["rasa run -m models/20200705-202240.tar.gz --enable-api --cors "*" --debug"]
 
 # Define default command. 
-CMD [ "gulp", "ngrok-serve" ]
+# CMD [ "gulp", "ngrok-serve" ]
 
-# Expose ports
-EXPOSE 5005
-EXPOSE 3007
+# --------------------------------------------
 
 # I suppose I can just run ngrok from myside to check ports were properly exposed.
 
+FROM builder as python
+
+# Install wget and then install miniconda as well as init it to .bashrc
+RUN apt-get install -y wget
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    bash ~/miniconda.sh -b -p $HOME/miniconda 
+ENV PATH=~/miniconda/bin:${PATH}
+RUN conda init
+RUN yes|conda install python=3.7.5
+
+FROM python as debugPoint
+RUN pip install rasa
+
+# CMD [ "conda", "activate base" ]
+
+RUN echo Hello!
+# FROM python as serve
+# serve teams web app with gulp and then go to rasa_bot and run model as well; both in the background
+# ENTRYPOINT bash launch.sh
