@@ -57,7 +57,7 @@ FROM builder as python
 # Install wget and then install miniconda as well as init it to .bashrc
 RUN apt-get install -y wget
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-	bash ~/miniconda.sh -b -p $HOME/miniconda 
+    bash ~/miniconda.sh -b -p $HOME/miniconda 
 ENV PATH=~/miniconda/bin:${PATH}
 RUN conda init
 RUN yes|conda install python=3.7.5
