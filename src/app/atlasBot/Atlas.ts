@@ -1,29 +1,15 @@
-/**
- * Imports for Atlas
- */
-import {
-  BotDeclaration,
-  MessageExtensionDeclaration,
-  PreventIframe,
-// tslint:disable: quotemark
-} from 'express-msteams-host';
-import * as debug from 'debug';
-import { DialogSet, DialogState } from 'botbuilder-dialogs';
-import {
-  StatePropertyAccessor,
-  CardFactory,
-  TurnContext,
-  MemoryStorage,
   ConversationState,
   ActivityTypes,
   TeamsActivityHandler,
+  UserState
 } from 'botbuilder';
-import { LuisRecognizer } from ('botbuilder-ai');
+import { LuisRecognizer } from 'botbuilder-ai';
 import HelpDialog from './dialogs/HelpDialog';
 import IntroDialog from './dialogs/IntroDialog';
 import FeedbackDialog from './dialogs/FeedbackDialog';
 import AtlasExtentionMessageExtension from '../atlasExtentionMessageExtension/AtlasExtentionMessageExtension';
 import WelcomeCard from './dialogs/WelcomeDialog';
+import { HelpDeskRecognizer } from './HelpDeskRecognizer';
 
 // Initialize debug logging module
 const log = debug('msteams');
@@ -39,8 +25,12 @@ const log = debug('msteams');
 )
 @PreventIframe('/atlasBot/aboutAtlas.html')
 
+// class will create this for each user within a team, makes conversations private
+
 export class Atlas extends TeamsActivityHandler {
   private readonly conversationState: ConversationState;
+  private LuisRecognizer: LuisRecognizer;
+
   /** Local property for AtlasExtentionMessageExtension */
   @MessageExtensionDeclaration('atlasExtentionMessageExtension')
   private _atlasExtentionMessageExtension: AtlasExtentionMessageExtension;
@@ -50,9 +40,23 @@ export class Atlas extends TeamsActivityHandler {
   /**
    * The constructor
    * @param conversationState
+   * @param luisRecognizer
    */
-  public constructor(conversationState: ConversationState) {
+  public constructor(
+    conversationState: ConversationState,
+  ) {
     super();
+
+    // get env_var
+    const { LuisAppId, LuisAPIKey, LuisAPIHostName } = process.env;
+    // create a luisConfig
+    const luisConfig = {
+      applicationId: LuisAppId,
+      endpointKey: LuisAPIKey,
+      endpoint: `https://${LuisAPIHostName}`,
+    };
+
+    this.LuisRecognizer = new HelpDeskRecognizer(luisConfig);
 
     // Message extension AtlasExtentionMessageExtension
     this._atlasExtentionMessageExtension = new AtlasExtentionMessageExtension();
@@ -101,6 +105,8 @@ export class Atlas extends TeamsActivityHandler {
       }
     );
 
+
+    // when conversation updates with a new member, send a welcome card
     this.onConversationUpdate(
       async (context: TurnContext): Promise<void> => {
         if (
@@ -120,16 +126,7 @@ export class Atlas extends TeamsActivityHandler {
       }
     );
 
+    // when a reaction is made, send the following activity from bot
     this.onMessageReaction(
       async (context: TurnContext): Promise<void> => {
         const added = context.activity.reactionsAdded;
-        if (added && added[0]) {
-          await context.sendActivity({
-            textFormat: 'xml',
-            text: `That was an interesting reaction (<b>${added[0].type}</b>)`,
-          });
-        }
-      }
-    );
-  }
-}
