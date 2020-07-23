@@ -1,0 +1,68 @@
+Search articles
+/////////////
+I'm looking for ...
+
+
+
+
+
+Cancel
+//////////
+Nevermind
+
+
+GetWeather
+/////
+what's the weather like?
+- location
+- city
+
+
+
+Schedule
+//////
+Schedule meeting....
+with tim and jhonny
+
+Onboard
+//////
+Help me
+What can you do?
+
+
+Feedback
+/////
+I have some feedback.
+Suggestions for improvement
+
+Create Support Ticket
+//////
+I'd like to report something
+
+
+
+ViewSupportTickets
+//////
+What are my open tickets?
+
+
+FindSchedule
+///////////
+What is Tim's calendar like?
+
+
+OpenFile
+///////
+Looking for skilling document for Jenna....
+{returns Onedrive link}
+
+
+
+
+Staff:
+Tim,Johnny,Jenna, Gregg, Monika, Troy, Dan, Hailie,
+
+
+
+test:
+create support ticket
