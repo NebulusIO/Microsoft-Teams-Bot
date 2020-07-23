@@ -13,7 +13,7 @@
     "@microsoft/teams-js": "1.6.0",
     "axios": "^0.19.2",
     "botbuilder": "4.7.1",
-    "botbuilder-ai": "^4.9.2",
+    "botbuilder-ai": "^4.9.3",
     "botbuilder-dialogs": "4.7.1",
     "botbuilder-teams-messagingextensions": "1.6.0",
     "compression": "1.7.4",
