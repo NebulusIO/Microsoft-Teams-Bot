@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-# Download NodeJS
+# Download & install NodeJS
 
 # install node_modules
 RUN npm install

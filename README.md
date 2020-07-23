@@ -1,3 +1,8 @@
+# Running Docker constainer
+Expose the following ports: 5005 & 3007
+
+$ docker run -ti -rm -p 5005:5505 -p 3007:3007 teams-app
+
 # Rasa React MsTeams App - Microsoft Teams App
 
 First application utilizing TypeScript coming from some JavaScript for React applications.
