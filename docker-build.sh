@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t new-teams-app .
+docker build -t troykirin/new-teams-app .
